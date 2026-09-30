@@ -48,7 +48,9 @@
     <main id="top">
       <section class="hero section-shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow reveal-text">Pietro Giudici / <span class="hero-role">developer</span></p>
+          <p class="eyebrow reveal-text">
+            Pietro Giudici / <span class="hero-role" aria-live="polite">DEVELOPER</span>
+          </p>
           <h1 id="hero-title" class="hero-title reveal-text">
             Code,<br />
             <em>with feeling.</em>
@@ -80,12 +82,12 @@
             <span>HTML</span><span>CSS</span><span>Python</span><span>DaVinci Resolve</span><span>Pixelmator Pro</span>
           </div>
           <div class="services-list">
-            <button class="service-toggle" type="button" aria-expanded="false"><span>01</span> Sviluppo web <b>+</b></button>
-            <div class="service-detail" hidden>Esperimenti e pagine web curate, responsive e costruite con HTML e CSS.</div>
-            <button class="service-toggle" type="button" aria-expanded="false"><span>02</span> Foto & video <b>+</b></button>
-            <div class="service-detail" hidden>Uno sguardo personale tra fotografia, montaggio e racconto visivo.</div>
-            <button class="service-toggle" type="button" aria-expanded="false"><span>03</span> Imparare facendo <b>+</b></button>
-            <div class="service-detail" hidden>Python, nuovi strumenti e progetti personali per continuare a crescere.</div>
+            <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-detail-1"><span>01</span> Sviluppo web <b>+</b></button>
+            <div id="service-detail-1" class="service-detail" hidden>Esperimenti e pagine web curate, responsive e costruite con HTML e CSS.</div>
+            <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-detail-2"><span>02</span> Foto & video <b>+</b></button>
+            <div id="service-detail-2" class="service-detail" hidden>Uno sguardo personale tra fotografia, montaggio e racconto visivo.</div>
+            <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-detail-3"><span>03</span> Imparare facendo <b>+</b></button>
+            <div id="service-detail-3" class="service-detail" hidden>Python, nuovi strumenti e progetti personali per continuare a crescere.</div>
           </div>
         </div>
       </section>
@@ -218,7 +220,13 @@
       <div class="footer-top">
         <p class="eyebrow">06 / Avvia una conversazione</p>
         <h2 class="footer-title reveal-text">Let's make<br /><em>something.</em></h2>
-        <a class="email-link reveal-text" href="https://github.com/pgiudici13" target="_blank" rel="noreferrer">Contattami su GitHub <span>↗</span></a>
+        <a
+          class="email-link reveal-text"
+          href="mailto:pietro.giudici@hotmail.com?subject=Contatto%20dal%20portfolio"
+          aria-label="Scrivi a Pietro Giudici via email"
+        >
+          pietro.giudici@hotmail.com <span aria-hidden="true">↗</span>
+        </a>
       </div>
       <div class="footer-bottom">
         <p>© 2026 Pietro Giudici</p>
