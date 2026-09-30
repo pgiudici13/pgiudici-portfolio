@@ -509,6 +509,58 @@ em {
   display: none;
 }
 
+.published-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.published-media-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #151515;
+}
+
+.published-media-card img,
+.published-media-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.75);
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1), filter 300ms ease;
+}
+
+.published-media-card:hover img,
+.published-media-card:hover video {
+  filter: saturate(1);
+  transform: scale(1.05);
+}
+
+.published-media-card span {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  max-width: calc(100% - 1.2rem);
+  overflow: hidden;
+  padding: 0.3rem 0.45rem;
+  background: rgba(10, 10, 10, 0.75);
+  color: var(--paper);
+  font-size: 0.64rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.media-empty {
+  grid-column: 1 / -1;
+  border: 1px solid var(--line);
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
 .preview-item {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -560,6 +612,66 @@ em {
   align-items: center;
   min-height: auto;
   padding-top: 8rem;
+}
+
+.project-detail-page {
+  min-height: 100vh;
+  padding: 12rem var(--gutter) 5rem;
+}
+
+.project-detail-title {
+  max-width: 11ch;
+  margin-top: 4rem;
+  font-size: clamp(4rem, 11vw, 11rem);
+  letter-spacing: -0.09em;
+  line-height: 0.82;
+}
+
+.project-detail-title em {
+  color: var(--blue);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.project-detail-meta {
+  margin-top: 3rem;
+  color: var(--blue);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-detail-copy {
+  max-width: 32rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.project-detail-media {
+  width: min(100%, 70rem);
+  margin: 7rem auto 0;
+}
+
+.project-detail-media img,
+.project-detail-media video {
+  display: block;
+  max-height: 75vh;
+  margin: auto;
+  object-fit: contain;
+}
+
+.project-placeholder {
+  border: 1px dashed rgba(75, 125, 255, 0.55);
+  padding: 8rem 2rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.project-placeholder code,
+.media-lab code {
+  color: #b8caff;
+  font-family: "Inter", sans-serif;
 }
 
 .tools-display {
@@ -671,6 +783,10 @@ em {
 
   .media-uploader {
     margin-top: 4rem;
+  }
+
+  .published-media-grid {
+    grid-template-columns: 1fr;
   }
 
   .tools-section {

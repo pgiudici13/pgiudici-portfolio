@@ -2,7 +2,7 @@
 
 Portfolio statico di Pietro Giudici, pubblicabile su GitHub Pages.
 
-Studente di Pavia appassionato di HTML, CSS, Python, fotografia e video.
+Studente del Liceo Scientifico Teresio Olivelli di Pavia, appassionato di HTML, CSS, Python, fotografia e video.
 
 ## Profilo GitHub
 
@@ -13,9 +13,9 @@ Studente di Pavia appassionato di HTML, CSS, Python, fotografia e video.
 
 ## Aggiungere foto e video
 
-La sezione **Media lab** permette di trascinare o selezionare file dal computer per visualizzarli nell'anteprima del browser. Le anteprime sono locali e temporanee: per pubblicare davvero un media va aggiunto al repository, ad esempio dentro `assets/media/`, e poi collegato in `index.html`.
+Metti i tuoi file dentro **`assets/media/`**. Non devi modificare l'HTML: il workflow genera automaticamente `assets/media/manifest.json` e la galleria del sito li mostrerà.
 
-Formati supportati dall'anteprima: immagini (`JPG`, `PNG`, `WEBP`) e video (`MP4`, `MOV`).
+Formati supportati: immagini (`JPG`, `PNG`, `WEBP`, `GIF`, `AVIF`) e video (`MP4`, `WEBM`, `MOV`, `M4V`). Ogni elemento della galleria è cliccabile e apre una sottopagina dedicata.
 
 ## Deploy
 

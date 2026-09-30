@@ -42,6 +42,7 @@
       </a>
       <nav aria-label="Navigazione principale">
         <a href="#work">Progetti</a>
+        <a href="#gallery">Scatti</a>
         <a href="#about">Profilo</a>
         <a href="#contact">Contatti</a>
       </nav>
@@ -78,7 +79,7 @@
         </div>
         <div class="about-panel reveal-text">
           <p class="about-lead">Sono Pietro, uno studente curioso che ama capire come funzionano le cose e trasformare le idee in qualcosa di visibile.</p>
-          <p>Mi muovo tra HTML, CSS e Python. Nel tempo libero fotografo, monto video e cerco sempre un modo nuovo per imparare.</p>
+          <p>Frequento il Liceo Scientifico Teresio Olivelli di Pavia. Mi muovo tra HTML, CSS e Python; nel tempo libero fotografo, monto video e cerco sempre un modo nuovo per imparare.</p>
           <div class="skill-cloud" aria-label="Competenze">
             <span>HTML</span><span>CSS</span><span>Python</span><span>DaVinci Resolve</span><span>Pixelmator Pro</span>
           </div>
@@ -107,7 +108,7 @@
         </div>
         <div class="project-grid">
           <article class="project-card project-card--wide" data-category="digital">
-            <a href="#contact" class="project-link" aria-label="Scopri il progetto Onda">
+            <a href="project.html?project=web-experiments" class="project-link" aria-label="Scopri il progetto Web experiments">
               <div class="img-wrapper">
                 <img
                   src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1800&q=90"
@@ -123,7 +124,7 @@
             </a>
           </article>
           <article class="project-card project-card--offset" data-category="identity">
-            <a href="#contact" class="project-link" aria-label="Scopri il progetto Nera">
+            <a href="project.html?project=equestrian-stories" class="project-link" aria-label="Scopri il progetto Equestrian stories">
               <div class="img-wrapper">
                 <img
                   src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1800&q=90"
@@ -139,7 +140,7 @@
             </a>
           </article>
           <article class="project-card" data-category="digital">
-            <a href="#contact" class="project-link" aria-label="Scopri il progetto Forma">
+            <a href="project.html?project=frames-from-pavia" class="project-link" aria-label="Scopri il progetto Frames from Pavia">
               <div class="img-wrapper">
                 <img
                   src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=90"
@@ -155,7 +156,7 @@
             </a>
           </article>
           <article class="project-card project-card--offset" data-category="identity">
-            <a href="#contact" class="project-link" aria-label="Scopri il progetto Sottile">
+            <a href="project.html?project=python-playground" class="project-link" aria-label="Scopri il progetto Python playground">
               <div class="img-wrapper">
                 <img
                   src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90"
@@ -174,17 +175,20 @@
       </section>
     </main>
 
-    <section id="media-lab" class="media-lab section-shell" aria-labelledby="media-title">
+    <section id="gallery" class="media-lab section-shell" aria-labelledby="media-title">
       <div class="media-lab-heading">
         <p class="eyebrow">03 / Media lab</p>
-        <h2 id="media-title" class="section-title reveal-text">Drop your<br /><em>frames.</em></h2>
-        <p class="media-lab-intro">Aggiungi qui i tuoi scatti o video per vedere come respirano dentro il portfolio. I file restano nel tuo browser.</p>
+        <h2 id="media-title" class="section-title reveal-text">Your<br /><em>frames.</em></h2>
+        <p class="media-lab-intro">Metti foto e video dentro <code>assets/media/</code>: dopo il push, il sito li indicizza e li mostra automaticamente qui.</p>
       </div>
       <div class="media-uploader reveal-text">
+        <div id="media-gallery-grid" class="published-media-grid" aria-live="polite">
+          <p class="media-empty">Sto cercando i tuoi media...</p>
+        </div>
         <label class="upload-zone" for="media-upload">
           <span class="upload-icon">+</span>
-          <strong>Trascina qui foto o video</strong>
-          <small>oppure scegli dal tuo Mac · JPG, PNG, WEBP, MP4, MOV</small>
+          <strong>Prova un'anteprima locale</strong>
+          <small>Per pubblicare davvero: aggiungi il file a <code>assets/media/</code></small>
           <input id="media-upload" type="file" accept="image/*,video/*" multiple />
         </label>
         <div id="media-preview" class="media-preview" aria-live="polite"></div>
