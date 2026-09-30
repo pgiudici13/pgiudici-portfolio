@@ -6,6 +6,7 @@ from pathlib import Path
 
 MEDIA_DIR = Path("assets/media")
 OUTPUT = MEDIA_DIR / "manifest.json"
+CATALOG = MEDIA_DIR / "catalog.json"
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"}
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".mov", ".m4v"}
 
@@ -16,6 +17,11 @@ def readable_title(stem: str) -> str:
 
 def main() -> None:
     MEDIA_DIR.mkdir(parents=True, exist_ok=True)
+    catalog = {}
+    if CATALOG.exists():
+        raw_catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
+        catalog = {entry["file"]: entry for entry in raw_catalog if entry.get("file")}
+
     entries = []
     for path in sorted(MEDIA_DIR.iterdir()):
         if not path.is_file() or path.name == "manifest.json":
@@ -27,14 +33,15 @@ def main() -> None:
             media_type = "video"
         else:
             continue
-        entries.append(
-            {
-                "src": f"assets/media/{path.name}",
-                "title": readable_title(path.stem),
-                "type": media_type,
-                "category": "photography" if media_type == "image" else "video",
-            }
-        )
+        metadata = catalog.get(path.name, {})
+        entries.append({
+            "src": f"assets/media/{path.name}",
+            "file": path.name,
+            "title": metadata.get("title") or readable_title(path.stem),
+            "description": metadata.get("description") or "Dal mio archivio personale.",
+            "type": media_type,
+            "category": metadata.get("category") or ("photography" if media_type == "image" else "video"),
+        })
     OUTPUT.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 

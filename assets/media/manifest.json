@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "src": "assets/media/Sfondo.JPG",
+    "file": "Sfondo.JPG",
+    "title": "Sfondo",
+    "description": "Dal mio archivio personale.",
+    "type": "image",
+    "category": "photography"
+  },
+  {
+    "src": "assets/media/_DSC0710.JPG",
+    "file": "_DSC0710.JPG",
+    "title": "Dsc0710",
+    "description": "Dal mio archivio personale.",
+    "type": "image",
+    "category": "photography"
+  },
+  {
+    "src": "assets/media/_DSC0718.JPG",
+    "file": "_DSC0718.JPG",
+    "title": "Dsc0718",
+    "description": "Dal mio archivio personale.",
+    "type": "image",
+    "category": "photography"
+  },
+  {
+    "src": "assets/media/_DSC1356.JPG",
+    "file": "_DSC1356.JPG",
+    "title": "Dsc1356",
+    "description": "Dal mio archivio personale.",
+    "type": "image",
+    "category": "photography"
+  },
+  {
+    "src": "assets/media/_DSC2069.JPG",
+    "file": "_DSC2069.JPG",
+    "title": "Dsc2069",
+    "description": "Dal mio archivio personale.",
+    "type": "image",
+    "category": "photography"
+  }
+]

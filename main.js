@@ -109,58 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Mostra i file scelti localmente nella preview non pubblicata.
-  const mediaInput = document.querySelector("#media-upload");
-  const uploadZone = document.querySelector(".upload-zone");
-  const mediaPreview = document.querySelector("#media-preview");
-  const clearMedia = document.querySelector("#clear-media");
-
-  const renderLocalMedia = (files) => {
-    if (!mediaPreview) return;
-    Array.from(files).forEach((file) => {
-      if (!file.type.startsWith("image/") && !file.type.startsWith("video/")) return;
-      const item = document.createElement("div");
-      const media = file.type.startsWith("video/") ? document.createElement("video") : document.createElement("img");
-      const name = document.createElement("span");
-      const objectUrl = URL.createObjectURL(file);
-      item.className = "preview-item";
-      media.src = objectUrl;
-      media.alt = file.name;
-      if (media.tagName === "VIDEO") {
-        media.controls = true;
-        media.muted = true;
-      }
-      name.className = "preview-name";
-      name.textContent = file.name;
-      item.append(media, name);
-      mediaPreview.appendChild(item);
-    });
-    if (clearMedia) clearMedia.hidden = mediaPreview.children.length === 0;
-  };
-
-  mediaInput?.addEventListener("change", (event) => {
-    renderLocalMedia(event.target.files);
-    event.target.value = "";
-  });
-  ["dragenter", "dragover"].forEach((eventName) => {
-    uploadZone?.addEventListener(eventName, (event) => {
-      event.preventDefault();
-      uploadZone.classList.add("is-dragging");
-    });
-  });
-  ["dragleave", "drop"].forEach((eventName) => {
-    uploadZone?.addEventListener(eventName, (event) => {
-      event.preventDefault();
-      uploadZone.classList.remove("is-dragging");
-    });
-  });
-  uploadZone?.addEventListener("drop", (event) => renderLocalMedia(event.dataTransfer.files));
-  clearMedia?.addEventListener("click", () => {
-    mediaPreview?.querySelectorAll("img, video").forEach((media) => URL.revokeObjectURL(media.src));
-    mediaPreview?.replaceChildren();
-    clearMedia.hidden = true;
-  });
-
   // Carica il catalogo generato dal workflow e costruisce la galleria pubblicata.
   loadPublishedMedia();
   loadProjectPage();
@@ -193,7 +141,7 @@ async function loadPublishedMedia() {
       card.innerHTML = item.type === "video"
         ? `<video src="${item.src}" muted loop autoplay playsinline></video>`
         : `<img src="${item.src}" alt="${item.title}" loading="lazy">`;
-      const caption = document.createElement("span");
+        const caption = document.createElement("span");
       caption.textContent = item.title;
       card.appendChild(caption);
       gallery.appendChild(card);
@@ -229,7 +177,7 @@ async function loadProjectPage() {
     const name = item?.title || "Media";
     title.innerHTML = `${name}<br /><em>detail.</em>`;
     meta.textContent = item?.category || "Portfolio media";
-    copy.textContent = "Uno scatto dal mio archivio personale.";
+    copy.textContent = item?.description || "Uno scatto dal mio archivio personale.";
     media.innerHTML = item?.type === "video"
       ? `<video src="${mediaPath}" controls autoplay muted playsinline></video>`
       : `<img src="${mediaPath}" alt="${name}">`;
