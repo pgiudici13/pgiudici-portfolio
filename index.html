@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pietro Giudici — designer e creative developer per brand, interfacce ed esperienze digitali."
+    />
+    <title>Pietro Giudici — Designer & Creative Developer</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#0a0a0a",
+              paper: "#f3f3f3",
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="custom-cursor" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Pietro Giudici, torna all'inizio">
+        <span>PIETRO</span>
+        <span>GIUDICI®</span>
+      </a>
+      <nav aria-label="Navigazione principale">
+        <a href="#work">Progetti</a>
+        <a href="#about">Profilo</a>
+        <a href="#contact">Contatti</a>
+      </nav>
+      <a class="header-index" href="#contact">[Disponibile]</a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow reveal-text">Pietro Giudici / Studente, developer, fotografo</p>
+          <h1 id="hero-title" class="hero-title reveal-text">
+            Code,<br />
+            <em>with feeling.</em>
+          </h1>
+          <div class="hero-meta reveal-text">
+            <p>Studio, costruisco e racconto idee<br />attraverso codice, immagini e video.</p>
+            <a class="scroll-note" href="#work">Scopri il lavoro <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img
+            class="reveal-img"
+            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=2400&q=90"
+            alt="Installazione artistica con luci rosse in uno spazio scuro"
+          />
+          <span class="media-label">Pavia / 2024</span>
+        </div>
+      </section>
+
+      <section id="about" class="about section-shell" aria-labelledby="about-title">
+        <div class="about-copy">
+          <p class="eyebrow">01 / Profilo</p>
+          <h2 id="about-title" class="section-title reveal-text">Mai dire<br /><em>mai.</em></h2>
+        </div>
+        <div class="about-panel reveal-text">
+          <p class="about-lead">Sono Pietro, uno studente curioso che ama capire come funzionano le cose e trasformare le idee in qualcosa di visibile.</p>
+          <p>Mi muovo tra HTML, CSS e Python. Nel tempo libero fotografo, monto video e cerco sempre un modo nuovo per imparare.</p>
+          <div class="skill-cloud" aria-label="Competenze">
+            <span>HTML</span><span>CSS</span><span>Python</span><span>DaVinci Resolve</span><span>Pixelmator Pro</span>
+          </div>
+          <div class="services-list">
+            <button class="service-toggle" type="button" aria-expanded="false"><span>01</span> Sviluppo web <b>+</b></button>
+            <div class="service-detail" hidden>Esperimenti e pagine web curate, responsive e costruite con HTML e CSS.</div>
+            <button class="service-toggle" type="button" aria-expanded="false"><span>02</span> Foto & video <b>+</b></button>
+            <div class="service-detail" hidden>Uno sguardo personale tra fotografia, montaggio e racconto visivo.</div>
+            <button class="service-toggle" type="button" aria-expanded="false"><span>03</span> Imparare facendo <b>+</b></button>
+            <div class="service-detail" hidden>Python, nuovi strumenti e progetti personali per continuare a crescere.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="projects section-shell" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / Selected work</p>
+            <div class="filter-bar" role="group" aria-label="Filtra i progetti">
+              <button class="filter-button is-active" type="button" data-filter="all">Tutti</button>
+              <button class="filter-button" type="button" data-filter="digital">Digital</button>
+              <button class="filter-button" type="button" data-filter="identity">Identity</button>
+            </div>
+          </div>
+          <h2 id="projects-title" class="section-title reveal-text">Selected<br /><em>signals.</em></h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card project-card--wide" data-category="digital">
+            <a href="#contact" class="project-link" aria-label="Scopri il progetto Onda">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1800&q=90"
+                  alt="Computer vintage colorato su una scrivania"
+                  class="reveal-img"
+                />
+                <span class="project-number">01</span>
+              </div>
+              <div class="project-info">
+                <h3>Web experiments</h3>
+                <p>HTML / CSS / 2024</p>
+              </div>
+            </a>
+          </article>
+          <article class="project-card project-card--offset" data-category="identity">
+            <a href="#contact" class="project-link" aria-label="Scopri il progetto Nera">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1800&q=90"
+                  alt="Pennelli e colori in un atelier d'artista"
+                  class="reveal-img"
+                />
+                <span class="project-number">02</span>
+              </div>
+              <div class="project-info">
+                <h3>Equestrian stories</h3>
+                <p>Video / DaVinci / 2024</p>
+              </div>
+            </a>
+          </article>
+          <article class="project-card" data-category="digital">
+            <a href="#contact" class="project-link" aria-label="Scopri il progetto Forma">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=90"
+                  alt="Architettura minimale con luce naturale"
+                  class="reveal-img"
+                />
+                <span class="project-number">03</span>
+              </div>
+              <div class="project-info">
+                <h3>Frames from Pavia</h3>
+                <p>Photography / Personal</p>
+              </div>
+            </a>
+          </article>
+          <article class="project-card project-card--offset" data-category="identity">
+            <a href="#contact" class="project-link" aria-label="Scopri il progetto Sottile">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90"
+                  alt="Scultura luminosa in un ambiente industriale"
+                  class="reveal-img"
+                />
+                <span class="project-number">04</span>
+              </div>
+              <div class="project-info">
+                <h3>Python playground</h3>
+                <p>Python / Learning</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <section id="media-lab" class="media-lab section-shell" aria-labelledby="media-title">
+      <div class="media-lab-heading">
+        <p class="eyebrow">03 / Media lab</p>
+        <h2 id="media-title" class="section-title reveal-text">Drop your<br /><em>frames.</em></h2>
+        <p class="media-lab-intro">Aggiungi qui i tuoi scatti o video per vedere come respirano dentro il portfolio. I file restano nel tuo browser.</p>
+      </div>
+      <div class="media-uploader reveal-text">
+        <label class="upload-zone" for="media-upload">
+          <span class="upload-icon">+</span>
+          <strong>Trascina qui foto o video</strong>
+          <small>oppure scegli dal tuo Mac · JPG, PNG, WEBP, MP4, MOV</small>
+          <input id="media-upload" type="file" accept="image/*,video/*" multiple />
+        </label>
+        <div id="media-preview" class="media-preview" aria-live="polite"></div>
+        <button id="clear-media" class="clear-media" type="button" hidden>Svuota anteprima</button>
+      </div>
+    </section>
+
+    <section class="tools-section section-shell" aria-labelledby="tools-title">
+      <div>
+        <p class="eyebrow">04 / Il mio setup</p>
+        <h2 id="tools-title" class="section-title reveal-text">Tools<br /><em>I trust.</em></h2>
+      </div>
+      <div class="tools-display reveal-text">
+        <div class="tool-card"><span>01</span><strong>MacBook Air M4</strong><small>My everyday machine</small></div>
+        <div class="tool-card"><span>02</span><strong>DaVinci Resolve</strong><small>Video editing & color</small></div>
+        <div class="tool-card"><span>03</span><strong>Pixelmator Pro</strong><small>Images & visual ideas</small></div>
+      </div>
+    </section>
+
+    <footer id="contact" class="site-footer section-shell">
+      <div class="footer-top">
+        <p class="eyebrow">05 / Avvia una conversazione</p>
+        <h2 class="footer-title reveal-text">Let's make<br /><em>something.</em></h2>
+        <a class="email-link reveal-text" href="mailto:ciao@pietrogiudici.it">Scrivimi <span>↗</span></a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Pietro Giudici</p>
+        <div class="social-links" aria-label="Social">
+          <a href="https://www.instagram.com/pedro130ita/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://github.com/pgiudici13" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <p>Pavia, Italia / Always learning</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
