@@ -136,12 +136,24 @@ async function loadPublishedMedia() {
     }
     mediaItems.forEach((item) => {
       const card = document.createElement("a");
+      const caption = document.createElement("span");
       card.className = "published-media-card";
       card.href = `project.html?media=${encodeURIComponent(item.src)}`;
-      card.innerHTML = item.type === "video"
-        ? `<video src="${item.src}" muted loop autoplay playsinline></video>`
-        : `<img src="${item.src}" alt="${item.title}" loading="lazy">`;
-        const caption = document.createElement("span");
+      if (item.type === "video") {
+        const video = document.createElement("video");
+        video.src = item.src;
+        video.muted = true;
+        video.loop = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        card.appendChild(video);
+      } else {
+        const image = document.createElement("img");
+        image.src = item.src;
+        image.alt = item.title;
+        image.loading = "lazy";
+        card.appendChild(image);
+      }
       caption.textContent = item.title;
       card.appendChild(caption);
       gallery.appendChild(card);
@@ -171,17 +183,36 @@ async function loadProjectPage() {
   const media = detail.querySelector(".project-detail-media");
 
   if (mediaPath) {
-    const response = await fetch("assets/media/manifest.json");
-    const items = response.ok ? await response.json() : [];
-    const item = items.find((entry) => entry.src === mediaPath);
-    const name = item?.title || "Media";
-    title.innerHTML = `${name}<br /><em>detail.</em>`;
-    meta.textContent = item?.category || "Portfolio media";
-    copy.textContent = item?.description || "Uno scatto dal mio archivio personale.";
-    media.innerHTML = item?.type === "video"
-      ? `<video src="${mediaPath}" controls autoplay muted playsinline></video>`
-      : `<img src="${mediaPath}" alt="${name}">`;
-    document.title = `${name} — Pietro Giudici`;
+    try {
+      const response = await fetch("assets/media/manifest.json", { cache: "no-store" });
+      const items = response.ok ? await response.json() : [];
+      const item = items.find((entry) => entry.src === mediaPath);
+      if (!item) throw new Error("Media non trovato nel manifest.");
+      const name = item.title;
+      title.innerHTML = `${name}<br /><em>detail.</em>`;
+      meta.textContent = item.category;
+      copy.textContent = item.description;
+      if (item.type === "video") {
+        const video = document.createElement("video");
+        video.src = item.src;
+        video.controls = true;
+        video.autoplay = true;
+        video.muted = true;
+        video.playsInline = true;
+        media.appendChild(video);
+      } else {
+        const image = document.createElement("img");
+        image.src = item.src;
+        image.alt = name;
+        media.appendChild(image);
+      }
+      document.title = `${name} — Pietro Giudici`;
+    } catch (error) {
+      title.innerHTML = "Media<br /><em>not found.</em>";
+      meta.textContent = "Portfolio";
+      copy.textContent = "Questo file non è presente nel catalogo pubblicato.";
+      console.error(error);
+    }
     return;
   }
 

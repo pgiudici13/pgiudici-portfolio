@@ -49,8 +49,7 @@ h3,
 h4,
 h5,
 h6,
-.brand,
-.nav-link {
+.brand {
   font-family: "Syne", sans-serif;
   font-weight: 600;
 }
@@ -445,68 +444,15 @@ em {
   min-width: 0;
 }
 
-.upload-zone {
-  display: flex;
-  min-height: 15rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed rgba(75, 125, 255, 0.65);
-  background: linear-gradient(135deg, rgba(75, 125, 255, 0.08), transparent);
-  color: var(--paper);
-  text-align: center;
-  cursor: none;
-  transition: border-color 250ms ease, background 250ms ease, transform 250ms ease;
-}
-
-.upload-zone:hover,
-.upload-zone.is-dragging {
-  border-color: var(--blue);
-  background: rgba(75, 125, 255, 0.16);
-  transform: translateY(-0.25rem);
-}
-
-.upload-zone input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  opacity: 0;
-}
-
-.upload-icon {
-  display: grid;
-  width: 3rem;
-  height: 3rem;
-  margin-bottom: 1rem;
-  place-items: center;
-  border: 1px solid var(--blue);
-  border-radius: 50%;
-  color: var(--blue);
-  font-size: 1.5rem;
-}
-
-.upload-zone strong {
-  font-family: "Syne", sans-serif;
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
-  font-weight: 500;
-}
-
-.upload-zone small {
-  margin-top: 0.65rem;
+.media-edit-note {
+  margin-top: 1rem;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
 }
 
-.media-preview {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-}
-
-.media-preview:empty {
-  display: none;
+.media-edit-note code {
+  color: #b8caff;
+  font-family: "Inter", sans-serif;
 }
 
 .published-media-grid {
@@ -559,50 +505,6 @@ em {
   padding: 2rem;
   color: var(--muted);
   font-size: 0.78rem;
-}
-
-.preview-item {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: #151515;
-}
-
-.preview-item img,
-.preview-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.preview-name {
-  position: absolute;
-  right: 0.5rem;
-  bottom: 0.5rem;
-  max-width: calc(100% - 1rem);
-  overflow: hidden;
-  padding: 0.25rem 0.4rem;
-  background: rgba(10, 10, 10, 0.75);
-  color: var(--paper);
-  font-size: 0.6rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.clear-media {
-  margin-top: 1rem;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  padding: 0.3rem 0;
-  background: transparent;
-  color: var(--muted);
-  font: inherit;
-  font-size: 0.68rem;
-  cursor: none;
-}
-
-.clear-media:hover {
-  color: var(--paper);
 }
 
 .tools-section {
@@ -779,10 +681,6 @@ em {
 
   .media-lab-intro {
     margin-top: 2rem;
-  }
-
-  .media-uploader {
-    margin-top: 4rem;
   }
 
   .published-media-grid {
