@@ -33,12 +33,22 @@
         <a href="#contact">Contatti</a>
       </nav>
       <a class="header-index" href="#contact">[Disponibile]</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span>Menu</span>
+        <span aria-hidden="true">+</span>
+      </button>
+      <div id="mobile-menu" class="mobile-menu" hidden>
+        <a href="#work">Progetti</a>
+        <a href="#gallery">Scatti</a>
+        <a href="#about">Profilo</a>
+        <a href="#contact">Contatti</a>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero section-shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow reveal-text">Pietro Giudici / Studente, developer, fotografo</p>
+          <p class="eyebrow reveal-text">Pietro Giudici / <span class="hero-role">developer</span></p>
           <h1 id="hero-title" class="hero-title reveal-text">
             Code,<br />
             <em>with feeling.</em>
@@ -51,10 +61,10 @@
         <div class="hero-media">
           <img
             class="reveal-img"
-            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=2400&q=90"
-            alt="Installazione artistica con luci rosse in uno spazio scuro"
+            src="assets/media/Sfondo.JPG"
+            alt="Scatto fotografico di Pietro Giudici"
           />
-          <span class="media-label">Pavia / 2026</span>
+          <span class="media-label">Pavia / Personal archive</span>
         </div>
       </section>
 
@@ -80,10 +90,26 @@
         </div>
       </section>
 
+      <section class="now-section section-shell" aria-labelledby="now-title">
+        <div>
+          <p class="eyebrow">02 / Currently</p>
+          <h2 id="now-title" class="section-title reveal-text">In the<br /><em>making.</em></h2>
+        </div>
+        <div class="now-panel reveal-text">
+          <p class="now-date">Settembre 2026 / Pavia</p>
+          <p class="now-lead">Sto imparando a dare una forma più precisa alle idee, senza perdere la curiosità del primo tentativo.</p>
+          <div class="now-list">
+            <span><b>Learning</b> Python e basi di interazione web</span>
+            <span><b>Making</b> Un archivio fotografico personale</span>
+            <span><b>Exploring</b> Motion, typography e nuovi layout</span>
+          </div>
+        </div>
+      </section>
+
       <section id="work" class="projects section-shell" aria-labelledby="projects-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">02 / Selected work</p>
+            <p class="eyebrow">03 / Selected work</p>
             <div class="filter-bar" role="group" aria-label="Filtra i progetti">
               <button class="filter-button is-active" type="button" data-filter="all">Tutti</button>
               <button class="filter-button" type="button" data-filter="digital">Digital</button>
@@ -97,8 +123,8 @@
             <a href="project.html?project=web-experiments" class="project-link" aria-label="Scopri il progetto Web experiments">
               <div class="img-wrapper">
                 <img
-                  src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1800&q=90"
-                  alt="Computer vintage colorato su una scrivania"
+                  src="assets/media/_DSC2069.JPG"
+                  alt="Scatto personale dall'archivio di Pietro Giudici"
                   class="reveal-img"
                 />
                 <span class="project-number">01</span>
@@ -113,8 +139,8 @@
             <a href="project.html?project=equestrian-stories" class="project-link" aria-label="Scopri il progetto Equestrian stories">
               <div class="img-wrapper">
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1800&q=90"
-                  alt="Pennelli e colori in un atelier d'artista"
+                  src="assets/media/_DSC0710.JPG"
+                  alt="Scatto personale dall'archivio di Pietro Giudici"
                   class="reveal-img"
                 />
                 <span class="project-number">02</span>
@@ -129,8 +155,8 @@
             <a href="project.html?project=frames-from-pavia" class="project-link" aria-label="Scopri il progetto Frames from Pavia">
               <div class="img-wrapper">
                 <img
-                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=90"
-                  alt="Architettura minimale con luce naturale"
+                  src="assets/media/_DSC0718.JPG"
+                  alt="Scatto personale dall'archivio di Pietro Giudici"
                   class="reveal-img"
                 />
                 <span class="project-number">03</span>
@@ -145,8 +171,8 @@
             <a href="project.html?project=python-playground" class="project-link" aria-label="Scopri il progetto Python playground">
               <div class="img-wrapper">
                 <img
-                  src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90"
-                  alt="Scultura luminosa in un ambiente industriale"
+                  src="assets/media/_DSC1356.JPG"
+                  alt="Scatto personale dall'archivio di Pietro Giudici"
                   class="reveal-img"
                 />
                 <span class="project-number">04</span>
@@ -163,7 +189,7 @@
 
     <section id="gallery" class="media-lab section-shell" aria-labelledby="media-title">
       <div class="media-lab-heading">
-        <p class="eyebrow">03 / Media lab</p>
+        <p class="eyebrow">04 / Media lab</p>
         <h2 id="media-title" class="section-title reveal-text">Your<br /><em>frames.</em></h2>
         <p class="media-lab-intro">Metti foto e video dentro <code>assets/media/</code>: dopo il push, il sito li indicizza e li mostra automaticamente qui.</p>
       </div>
@@ -177,19 +203,20 @@
 
     <section class="tools-section section-shell" aria-labelledby="tools-title">
       <div>
-        <p class="eyebrow">04 / Il mio setup</p>
+        <p class="eyebrow">05 / Il mio setup</p>
         <h2 id="tools-title" class="section-title reveal-text">Tools<br /><em>I trust.</em></h2>
       </div>
       <div class="tools-display reveal-text">
-        <div class="tool-card"><span>01</span><strong>MacBook Air M4</strong><small>My everyday machine</small></div>
-        <div class="tool-card"><span>02</span><strong>DaVinci Resolve</strong><small>Video editing & color</small></div>
-        <div class="tool-card"><span>03</span><strong>Pixelmator Pro</strong><small>Images & visual ideas</small></div>
+        <div class="tool-card"><span>01</span><strong>VS Code</strong><small>Build & experiment</small><b>↗</b></div>
+        <div class="tool-card"><span>02</span><strong>GitHub</strong><small>Share what I make</small><b>↗</b></div>
+        <div class="tool-card"><span>03</span><strong>DaVinci Resolve</strong><small>Video editing & color</small><b>↗</b></div>
+        <div class="tool-card"><span>04</span><strong>Pixelmator Pro</strong><small>Images & visual ideas</small><b>↗</b></div>
       </div>
     </section>
 
     <footer id="contact" class="site-footer section-shell">
       <div class="footer-top">
-        <p class="eyebrow">05 / Avvia una conversazione</p>
+        <p class="eyebrow">06 / Avvia una conversazione</p>
         <h2 class="footer-title reveal-text">Let's make<br /><em>something.</em></h2>
         <a class="email-link reveal-text" href="https://github.com/pgiudici13" target="_blank" rel="noreferrer">Contattami su GitHub <span>↗</span></a>
       </div>

@@ -1,8 +1,11 @@
 // Avvia tutte le funzionalità quando il markup è pronto.
 document.addEventListener("DOMContentLoaded", () => {
+  // Rileva la preferenza di movimento ridotto impostata dal sistema operativo.
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   // Seleziona e anima il cursore indipendente dalle CDN esterne.
   const cursor = document.querySelector(".custom-cursor");
-  if (cursor) {
+  if (cursor && !reducedMotion) {
     let currentX = window.innerWidth / 2;
     let currentY = window.innerHeight / 2;
     let targetX = currentX;
@@ -30,8 +33,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Collega il pulsante mobile al pannello di navigazione accessibile.
+  const menuToggle = document.querySelector(".menu-toggle");
+  // Recupera il pannello che contiene i collegamenti mobile.
+  const mobileMenu = document.querySelector("#mobile-menu");
+  // Attiva il menu solo quando entrambi gli elementi sono presenti nella pagina.
+  if (menuToggle && mobileMenu) {
+    // Aggiorna apertura, attributi ARIA e stato visivo del menu.
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      mobileMenu.hidden = isOpen;
+    });
+    // Chiude il menu dopo la selezione di una destinazione.
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuToggle.setAttribute("aria-expanded", "false");
+        mobileMenu.hidden = true;
+      });
+    });
+  }
+
+  // Alterna i ruoli personali nella Hero senza dipendere da librerie esterne.
+  const heroRole = document.querySelector(".hero-role");
+  // Definisce le parole che descrivono il modo in cui lavoro.
+  const roles = ["developer", "photographer", "videomaker"];
+  // Avvia la rotazione solo se il testo e il movimento lo consentono.
+  if (heroRole && !reducedMotion) {
+    // Memorizza l'indice del ruolo attualmente mostrato.
+    let roleIndex = 0;
+    // Cambia ruolo con una dissolvenza breve e leggibile.
+    window.setInterval(() => {
+      heroRole.style.opacity = "0";
+      window.setTimeout(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        heroRole.textContent = roles[roleIndex];
+        heroRole.style.opacity = "1";
+      }, 250);
+    }, 3000);
+  }
+
   // Attiva lo scroll inerziale se Lenis è disponibile.
-  if (typeof Lenis !== "undefined") {
+  if (typeof Lenis !== "undefined" && !reducedMotion) {
     const lenis = new Lenis({
       duration: 2,
       easing: (value) => Math.min(1, 1.001 - Math.pow(2, -10 * value)),
@@ -53,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Registra ScrollTrigger quando i due script sono caricati.
-  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined" && !reducedMotion) {
     gsap.registerPlugin(ScrollTrigger);
   }
 
@@ -124,7 +167,11 @@ async function loadPublishedMedia() {
   if (!gallery) return;
   try {
     const response = await fetch("assets/media/manifest.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`Manifest error: ${response.status}`);
+    if (!response.ok) {
+      gallery.innerHTML = `<p class="media-empty">La galleria sarà disponibile dopo il primo deploy con manifest.</p>`;
+      console.error(`Manifest error: ${response.status}`);
+      return;
+    }
     const mediaItems = await response.json();
     gallery.replaceChildren();
     if (!mediaItems.length) {
@@ -187,7 +234,12 @@ async function loadProjectPage() {
       const response = await fetch("assets/media/manifest.json", { cache: "no-store" });
       const items = response.ok ? await response.json() : [];
       const item = items.find((entry) => entry.src === mediaPath);
-      if (!item) throw new Error("Media non trovato nel manifest.");
+      if (!item) {
+        title.innerHTML = "Media<br /><em>not found.</em>";
+        meta.textContent = "Portfolio";
+        copy.textContent = "Questo file non è presente nel catalogo pubblicato.";
+        return;
+      }
       const name = item.title;
       title.innerHTML = `${name}<br /><em>detail.</em>`;
       meta.textContent = item.category;
